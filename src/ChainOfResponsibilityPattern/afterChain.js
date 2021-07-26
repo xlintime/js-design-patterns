@@ -28,7 +28,7 @@ const order=(value)=>{
 
 Function.prototype.after=function(fn){
   let self=this; 
-  return function(){
+  return function(){ // 匿名函数在全局执行，因此需要替换 this
     console.log("self-->",self)
     console.log("this-->",this)
    let ret=self.apply(this,arguments);
