@@ -29,7 +29,9 @@ const Chain=function(fn){
   this.successor=null;
 }
 Chain.prototype.setSuccessor=function(successor){
-  return this.successor=successor;
+  console.log("successor-->",successor)
+    this.successor=successor; // 这里return 没有什么用
+   console.log("this.successor-->",this)
 }
 Chain.prototype.passRequest=function(){
   let ret=this.fn.apply(this,arguments);
@@ -47,4 +49,4 @@ let chainOrder=new Chain(order);
 
 chainOrder500.setSuccessor(chainOrder200);
 chainOrder200.setSuccessor(chainOrder);
-chainOrder500.passRequest(4)
+chainOrder500.passRequest(200)
