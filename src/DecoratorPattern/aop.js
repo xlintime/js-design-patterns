@@ -1,5 +1,5 @@
 Function.prototype.before = function (beforeFn) {
-  let self = this; // 调用的函数
+  let self = this; // self 调用的函数
   return function () {
     beforeFn.apply(this, arguments); // this window
     return self.apply(this, arguments);
